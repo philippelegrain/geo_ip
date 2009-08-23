@@ -1,13 +1,44 @@
 GeoIp
 =====
 
-Introduction goes here.
+A dead simple plugin that make use of ipinfodb.com web service to locate incoming request geographic origin.
+
+More information on ip info db : http://ipinfodb.com/
+If you use their service a lot, please consider making a donation here: http://ipinfodb.com/donate.php
 
 
 Example
 =======
 
-Example goes here.
+This plugin add the method "remote_localization(ip = nil)" to ActionController::Base.
+If no IP is provided as a parameter, then request.remote_ip is used.
+
+the return value is a hash containing all information found on ipinfodb, i.e.:
+
+{
+    "RegionName"=>"Brabant",
+    "Status"=>"OK",
+    "Longitude"=>"4.3667",
+    "City"=>"Elsene",
+    "Gmtoffset"=>"1.0",
+    "RegionCode"=>"02",
+    "CountryName"=>"Belgium",
+    "Latitude"=>"50.8333",
+    "CountryCode"=>"BE",
+    "Dstoffset"=>"2.0",
+    "ZipPostalCode"=>nil,
+    "Ip"=>"my_office_ip_was_here"
+}
+
+This plugin is in production use on http://www.naturesca.com
+
+You can also configure your environment so that the method returns a predefined value (for test/development use)
+
+in any of your environment file:
+
+GeoIp.configure do |config|
+  config.default_return_value = {:hello => "world"}
+end
 
 
-Copyright (c) 2009 [name of plugin creator], released under the MIT license
+Copyright (c) 2009 redstorm sprl (http://www.redstorm.be), released under the MIT license
