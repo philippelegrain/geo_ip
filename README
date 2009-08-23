@@ -6,7 +6,6 @@ A dead simple plugin that make use of ipinfodb.com web service to locate incomin
 More information on ip info db : http://ipinfodb.com/
 If you use their service a lot, please consider making a donation here: http://ipinfodb.com/donate.php
 
-
 Example
 =======
 
@@ -30,8 +29,6 @@ the return value is a hash containing all information found on ipinfodb, i.e.:
     "Ip"=>"my_office_ip_was_here"
 }
 
-This plugin is in production use on http://www.naturesca.com
-
 You can also configure your environment so that the method returns a predefined value (for test/development use)
 
 in any of your environment file:
@@ -40,5 +37,6 @@ GeoIp.configure do |config|
   config.default_return_value = {:hello => "world"}
 end
 
+This plugin is in production use on http://www.naturesca.com
 
 Copyright (c) 2009 redstorm sprl (http://www.redstorm.be), released under the MIT license
